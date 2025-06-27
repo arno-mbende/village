@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: village-app
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn village.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: village.settings
+      - key: PYTHON_VERSION
+        value: 3.10
